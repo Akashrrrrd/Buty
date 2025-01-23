@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Navbar } from "./components/Navbar/Navbar";
 import { Home } from "./components/Home/Home";
+import SplashScreen from "./components/SplashScreen";
 import side_1 from "./assets/side_1.png";
 import side_2 from "./assets/side_2.png";
 import side_3 from "./assets/side_3.png";
@@ -26,6 +27,7 @@ const App = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [selectedItem, setSelectedItem] = useState(null);
   const [showItemDetails, setShowItemDetails] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const sidebarItems = [
     {
@@ -180,6 +182,14 @@ const App = () => {
     setShowItemDetails(true);
     setIsSidebarOpen(true);
   };
+
+  const handleAnimationComplete = () => {
+    setIsLoading(false);
+  };
+
+  if (isLoading) {
+    return <SplashScreen onAnimationComplete={handleAnimationComplete} />;
+  }
 
   return (
     <div className="app">

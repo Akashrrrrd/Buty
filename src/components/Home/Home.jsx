@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import homeLogo from "../../assets/home_logo.png"; // Import the logo
 import "./Home.css";
 
 export const Home = ({
@@ -38,29 +39,39 @@ export const Home = ({
   };
 
   return (
-    <div className="home">
-      <div className="background-overlay">
-        {mapPoints.map((point, index) => (
-          <div
-            key={index}
-            className="map-point-container"
-            style={{
-              top: point.top,
-              left: point.left,
-              right: point.right,
-            }}
-          >
+    <div className="home-container">
+      <div
+        className="background-overlay"
+        style={{
+          backgroundImage: `url(${homeLogo})`,
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
+      >
+        <div className="map-points-wrapper">
+          {mapPoints.map((point, index) => (
             <div
-              className="map-point"
-              onMouseEnter={() => setHoveredPoint(point.item)}
-              onMouseLeave={() => setHoveredPoint(null)}
-              onClick={() => handleMapPointClick(point.item)}
-            />
-            {hoveredPoint === point.item && (
-              <div className="point-tooltip">{point.item}</div>
-            )}
-          </div>
-        ))}
+              key={index}
+              className="map-point-container"
+              style={{
+                top: point.top,
+                left: point.left,
+                right: point.right,
+              }}
+            >
+              <div
+                className="map-point"
+                onMouseEnter={() => setHoveredPoint(point.item)}
+                onMouseLeave={() => setHoveredPoint(null)}
+                onClick={() => handleMapPointClick(point.item)}
+              />
+              {hoveredPoint === point.item && (
+                <div className="point-tooltip">{point.item}</div>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
 
       <div className="shortcuts-panel">

@@ -5,9 +5,8 @@
   left: 0;
   width: 100%;
   height: 70px;
-  background-color: rgba(26, 15, 41, 0.95);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Enhanced shadow for depth */
-  z-index: 1000;
+  background-color: transparent;
+  z-index: 100;
 }
 
 .navbar-content {
@@ -74,17 +73,14 @@
   left: -350px;
   width: 350px;
   height: calc(100vh - 70px);
-  background-color: rgba(26, 15, 41, 0.98);
-  box-shadow: 3px 0 8px rgba(0, 0, 0, 0.4);
+  background-color: transparent;
   transition: left 0.3s ease, box-shadow 0.3s ease;
   z-index: 999;
   overflow-y: auto;
-  border-right: 1px solid rgba(151, 71, 255, 0.1);
 }
 
 .sidebar.open {
   left: 0;
-  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.6); /* Stronger shadow when open */
 }
 
 .overlay {
@@ -93,17 +89,16 @@
   left: 0;
   width: 100%;
   height: calc(100vh - 70px);
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: transparent;
   z-index: 998;
-  backdrop-filter: blur(5px); /* More intense blur for focus */
 }
 
 .sidebar-item {
-  padding: 16px 24px; /* Slightly larger padding for easier clickability */
+  padding: 16px;
   display: flex;
   align-items: center;
   color: rgba(255, 255, 255, 0.9);
-  font-size: 16px; /* Slightly larger text for readability */
+  font-size: 12px;
   font-weight: 500;
   cursor: pointer;
   transition: background-color 0.2s ease, border-left-color 0.2s ease,
@@ -112,7 +107,7 @@
 }
 
 .sidebar-item:hover {
-  background-color: rgba(151, 71, 255, 0.2); /* Softer hover effect */
+  background-color: rgba(151, 71, 255, 0.2);
   border-left-color: rgba(151, 71, 255, 0.8);
   color: #ffffff;
 }
@@ -160,62 +155,64 @@
 
 /* Dropdown Content Wrapper */
 .sidebar-dropdown {
-  padding: 1rem; /* Adjusted padding for a balanced look */
+  padding: 0.8rem; /* Reduced padding for a more compact look */
   background: linear-gradient(145deg, #9747ff, #6d36cc);
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3); /* Softer, more subtle shadow */
   color: #ffffff;
   font-family: "Poppins", sans-serif;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
+  width: 100%; /* Maintain full width while reducing height */
+  max-width: 400px; /* Optional: Keep a reasonable width */
+  margin: 0 auto; /* Center the container */
 }
 
 /* Image Container */
 .content-image-container {
-  width: 100%;
-  margin-bottom: 1rem; /* Increased margin for better spacing */
-  border-radius: 14px;
+  margin-bottom: 0.5rem; /* Reduced margin */
+  border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25); /* Smoother shadow for a more elevated effect */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Slightly reduced shadow */
 }
 
 .content-image {
   width: 100%;
-  height: auto;
+  height: 160px; /* Fixed height to minimize image height */
   object-fit: cover;
   display: block;
   transition: transform 0.4s ease, filter 0.4s ease;
 }
 
 .content-image:hover {
-  transform: scale(1.1); /* Subtle zoom effect */
-  filter: brightness(0.85); /* Slightly reduced brightness on hover */
+  transform: scale(1.05); /* Subtle zoom effect */
+  filter: brightness(0.9); /* Slight brightness adjustment */
 }
 
 /* Title Styling */
 .dropdown-title {
-  font-size: 1.5rem; /* Slightly larger for better prominence */
+  font-size: 1.3rem; /* Reduced font size */
   font-weight: 600;
-  margin-bottom: 1rem; /* Reduced margin for better spacing balance */
+  margin-bottom: 0.5rem; /* Reduced margin */
   text-align: center;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px; /* Reduced letter spacing */
   color: #ffe7ff;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2); /* Added text shadow for emphasis */
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* Description Styling */
 .dropdown-description {
-  font-size: 1.1rem; /* Slightly smaller for improved readability */
-  margin-bottom: 1rem;
-  line-height: 1; /* Reduced line height for better text flow */
+  font-size: 1rem; /* Slightly smaller for compactness */
+  margin-bottom: 0.5rem; /* Reduced margin */
+  line-height: 1.2; /* Slightly tighter line height */
   text-align: justify;
   opacity: 0.95;
 }
 
 /* Release Date Styling */
 .dropdown-date {
-  font-size: 1.1rem;
+  font-size: 1rem; /* Reduced font size */
   font-style: italic;
-  margin-bottom: 1rem; /* Reduced margin for balance */
+  margin-bottom: 0.5rem; /* Reduced margin */
   text-align: center;
   color: #ffcaff;
 }
@@ -224,20 +221,20 @@
 .dropdown-buttons {
   display: flex;
   justify-content: center;
-  gap: 1.2rem; /* Reduced gap for compactness */
+  gap: 0.8rem; /* Reduced gap */
 }
 
 .try-button,
 .buy-button {
-  padding: 0.8rem 0.8rem; /* Reduced padding for a more compact size */
-  font-size: 0.9rem; /* Slightly smaller font size */
+  padding: 0.6rem 0.8rem; /* Reduced padding for a compact size */
+  font-size: 0.85rem; /* Slightly smaller font size */
   font-weight: bold;
   color: #9747ff;
   background: linear-gradient(145deg, #ffffff, #f0f0f0);
   border: none;
-  border-radius: 10px; /* Slightly smaller border radius for a more compact look */
+  border-radius: 8px; /* Smaller border radius */
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Slightly softer shadow */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15); /* Softer shadow */
   transition: transform 0.3s ease, background-color 0.3s ease,
     box-shadow 0.3s ease;
 }
@@ -245,8 +242,8 @@
 .try-button:hover,
 .buy-button:hover {
   background: linear-gradient(145deg, #ffe7ff, #ffffff);
-  transform: translateY(-3px); /* Slightly reduced hover translation */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Lighter hover shadow */
+  transform: translateY(-2px); /* Slightly reduced hover translation */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Lighter hover shadow */
 }
 
 .try-button:active,
