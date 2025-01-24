@@ -74,17 +74,21 @@ export const Home = ({
         </div>
       </div>
 
-      <div className="shortcuts-panel">
-        <h4>keyboard shortcuts</h4>
-        <ul>
-          {keyboardShortcuts.map((shortcut, index) => (
-            <li key={index}>
-              {shortcut.action}
-              <span className="key">{shortcut.key}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+      {isSidebarOpen ? (
+        ""
+      ) : (
+        <div className="shortcuts-panel">
+          <h4>keyboard shortcuts</h4>
+          <ul>
+            {keyboardShortcuts.map((shortcut, index) => (
+              <li key={index}>
+                {shortcut.action}
+                <span className="key">{shortcut.key}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 };
