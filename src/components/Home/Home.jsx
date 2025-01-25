@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import homeLogo from "../../assets/home_logo.png"; // Import the logo
+import homeLogo from "../../assets/home_logo.png";
 import "./Home.css";
 
 export const Home = ({
@@ -20,7 +20,7 @@ export const Home = ({
   ];
 
   const mapPoints = [
-    { top: "35%", right: "40%", item: "Advanced Miner Job" },
+    { top: "45%", right: "40%", item: "Advanced Miner Job" },
     { top: "50%", left: "45%", item: "Gardener Job" },
     { top: "60%", right: "35%", item: "Infinite Jobs" },
     { top: "70%", left: "60%", item: "Advanced Progress Bar" },
@@ -29,7 +29,7 @@ export const Home = ({
     { top: "45%", right: "55%", item: "Flight School" },
     { top: "50%", left: "30%", item: "Boat School" },
     { top: "55%", left: "40%", item: "License System" },
-    { top: "20%", left: "30%", item: "Advanced Garbage Job" },
+    { top: "30%", left: "30%", item: "Advanced Garbage Job" },
   ];
 
   const handleMapPointClick = (item) => {
@@ -40,43 +40,32 @@ export const Home = ({
 
   return (
     <div className="home-container">
-      <div
-        className="background-overlay"
-        style={{
-          backgroundImage: `url(${homeLogo})`,
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-        }}
-      >
-        <div className="map-points-wrapper">
-          {mapPoints.map((point, index) => (
+      <img src={homeLogo} alt="Home background" className="home-background" />
+      <div className="map-points-wrapper">
+        {mapPoints.map((point, index) => (
+          <div
+            key={index}
+            className="map-point-container"
+            style={{
+              top: point.top,
+              left: point.left,
+              right: point.right,
+            }}
+          >
             <div
-              key={index}
-              className="map-point-container"
-              style={{
-                top: point.top,
-                left: point.left,
-                right: point.right,
-              }}
-            >
-              <div
-                className="map-point"
-                onMouseEnter={() => setHoveredPoint(point.item)}
-                onMouseLeave={() => setHoveredPoint(null)}
-                onClick={() => handleMapPointClick(point.item)}
-              />
-              {hoveredPoint === point.item && (
-                <div className="point-tooltip">{point.item}</div>
-              )}
-            </div>
-          ))}
-        </div>
+              className="map-point"
+              onMouseEnter={() => setHoveredPoint(point.item)}
+              onMouseLeave={() => setHoveredPoint(null)}
+              onClick={() => handleMapPointClick(point.item)}
+            />
+            {hoveredPoint === point.item && (
+              <div className="point-tooltip">{point.item}</div>
+            )}
+          </div>
+        ))}
       </div>
 
-      {isSidebarOpen ? (
-        ""
-      ) : (
+      {isSidebarOpen ? null : (
         <div className="shortcuts-panel">
           <h4>keyboard shortcuts</h4>
           <ul>
